@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="primary"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title color="primary">List - Reorder</ion-title>
+
+
+    <ion-buttons slot="end">
+      <ion-button (click)="reorderDisable = !reorderDisable" expand="block" slot="end">
+        <ion-icon slot="start" name="filter-circle-outline"></ion-icon>
+        Toogle
+      </ion-button>
+
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-reorder-group [disabled]="reorderDisable" (ionItemReorder)="doReorder($event)">
+
+      <ion-item *ngFor="let personaje of personajes">
+        <ion-reorder slot="start">
+          <ion-icon name="swap-vertical-outline"></ion-icon>
+        </ion-reorder>
+
+        <ion-label>{{personaje}}</ion-label>
+
+      </ion-item>
+
+    </ion-reorder-group>
+
+  </ion-list>
+
+</ion-content>

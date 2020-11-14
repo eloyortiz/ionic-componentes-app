@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Componente{
-  icon: string;
-  name: string;
-  redirecTo: string;
-}
-
+import { Observable } from 'rxjs';
+import { Componente } from '../../interfaces/interfaces';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-inicio',
@@ -14,24 +10,12 @@ interface Componente{
 })
 export class InicioPage implements OnInit {
 
-  componentes: Componente[] = [
-    {
-      icon: 'american-football-outline',
-      name: 'Action Sheet',
-      redirecTo: '/action-sheet'
-    },
-    {
-      icon: 'logo-apple-appstore',
-      name: 'Alert',
-      redirecTo: '/alert'
-    }
-  ];
-
-
-
-  constructor() { }
+  componentes: Observable<Componente[]>;
+ 
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.componentes = this.dataService.getMenuOpts();
   }
 
 }

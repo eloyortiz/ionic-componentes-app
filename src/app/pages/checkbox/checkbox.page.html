@@ -1,0 +1,28 @@
+<app-header titulo="check box"></app-header>
+
+<ion-content class="ion-padding">
+
+<ion-list>
+  <ion-item>
+    <ion-checkbox slot="start"></ion-checkbox>
+    <ion-label> Checkbox</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Checkbox</ion-label>
+    <ion-checkbox slot="end"></ion-checkbox>
+  </ion-item>
+</ion-list>
+<h3>Lista ngFor</h3>
+<ion-list>
+ <ion-item *ngFor="let item of data"
+  (click)="onClick( item )"
+ >
+    <ion-label>{{ item.name }}</ion-label>
+    <ion-checkbox slot="end" [(ngModel)]="item.selected" [color]="item.name"></ion-checkbox>
+  </ion-item>
+</ion-list>
+
+<ion-button (click)="verData()" expand="block">
+  Ver Data
+</ion-button>
+</ion-content>
