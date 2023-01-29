@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-date-time',
-  templateUrl: './date-time.page.html',
-  styleUrls: ['./date-time.page.scss'],
+  selector: "app-date-time",
+  templateUrl: "./date-time.page.html",
+  styleUrls: ["./date-time.page.scss"],
 })
 export class DateTimePage implements OnInit {
-
   fechaNaci: Date = new Date();
 
   customYearValues: string[] = [];
@@ -14,39 +13,42 @@ export class DateTimePage implements OnInit {
   customPickerOptions = {
     buttons: [
       {
-        text: 'Hola',
-        handler: (event) =>  {
+        text: "Hola",
+        handler: (event) => {
           console.log(event);
-        }
+        },
       },
       {
-        text: 'Mundo',
+        text: "Mundo",
         handler: () => {
-          console.log('Mundo!');
-        }
+          console.log("Mundo!");
+        },
       },
-    ]
+    ],
   };
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-
-    const currentYear = (new Date()).getFullYear();
+    const currentYear = new Date().getFullYear();
     const factor = 1;
     const cantidad = 4;
-    const max = currentYear+factor;
+    const max = currentYear + factor;
 
     this.customYearValues.push(max.toString());
     this.customYearValues.push(currentYear.toString());
-    for (let i = 1; i <= cantidad-2; i++) {
-      this.customYearValues.push((currentYear - (i*factor)).toString());
+    for (let i = 1; i <= cantidad - 2; i++) {
+      this.customYearValues.push((currentYear - i * factor).toString());
     }
-    console.log('customYearValues: ', this.customYearValues);
+    console.log("customYearValues: ", this.customYearValues);
   }
 
-  cambioFecha(event){
+  cambioFecha(event) {
     console.log(event);
     console.log(new Date(event.detail.value));
+  }
+
+  confirm() {
+    console.log("Confirm!");
   }
 }

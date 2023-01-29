@@ -8,9 +8,8 @@
     </ion-list-header>
     <ion-item>
       <ion-label>Fecha de Nacimiento</ion-label>
-      <ion-datetime [value]="fechaNaci.toISOString()"
-      display-format="DD MMMM YYYY"
-      (ionChange)="cambioFecha( $event )"></ion-datetime>
+      <ion-datetime [value]="fechaNaci.toISOString()" display-format="DD MMMM YYYY"
+        (ionChange)="cambioFecha( $event )"></ion-datetime>
     </ion-item>
 
     <ion-list-header>
@@ -19,25 +18,25 @@
 
     <ion-item>
       <ion-label>Min y Max</ion-label>
-      <ion-datetime display-format="DD MMMM YYYY"
-      min="2015-01-01"
-      max="2025-12-31"
-      ></ion-datetime>
+      <ion-datetime display-format="DD MMMM YYYY" min="2015-01-01" max="2025-12-31"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label>Años</ion-label>
-      <ion-datetime display-format="YYYY"
-      min="2015"
-      max="2025"
-      ></ion-datetime>
+      <ion-datetime [showDefaultButtons]="true" doneText="All set" cancelText="Never mind" display-format="YYYY"
+        min="2015" max="2025"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label>Custom Options</ion-label>
-      <ion-datetime [pickerOptions]="customPickerOptions"
-                    [yearValues]="customYearValues"
-      ></ion-datetime>
+      <ion-datetime #datetime [presentation]="customPickerOptions" [yearValues]="customYearValues">
+        <span slot="title">Selecciona fecha de reserva</span>
+        <ion-buttons slot="buttons">
+          <ion-button color="danger" (click)="datetime.reset()">Reset</ion-button>
+          <ion-button color="primary" (click)="datetime.cancel()">Cancel</ion-button>
+          <ion-button color="success" (click)="datetime.confirm()">Confirm</ion-button>
+        </ion-buttons>
+      </ion-datetime>
     </ion-item>
 
 
