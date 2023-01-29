@@ -2,12 +2,17 @@
 # http://git-scm.com/docs/gitignore
 
 *~
+.sass-cache
 *.sw[mnpcod]
 .tmp
 *.tmp
 *.tmp.*
 *.sublime-project
 *.sublime-workspace
+*.swp
+*.swo
+*.log
+*.DS_Store
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
@@ -17,12 +22,14 @@ $RECYCLE.BIN/
 log.txt
 npm-debug.log*
 
+/.angular
 /.idea
 /.ionic
 /.sass-cache
 /.sourcemaps
 /.versions
 /.vscode
+/bower_components/
 /coverage
 /dist
 /node_modules
